@@ -5,9 +5,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 
 
 const rootReducer = combineReducers({
-    reducers: {
-        user: userReducer,
-    },
+    user: userReducer,
 });
 
 const persistConfig = {
