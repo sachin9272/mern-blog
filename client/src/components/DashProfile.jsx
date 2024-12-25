@@ -7,6 +7,8 @@ const DashProfile = () => {
     const [imageFile, setImageFile] = useState(null);
     const [imageFileUrl, setImageFileUrl] = useState(null);
     const filePickerRef = useRef();
+    const [formData, setFormData] = useState({});
+    
     const handleImageChange = (e) => {
       const file = e.target.files[0];
       if(file){
@@ -22,7 +24,25 @@ const DashProfile = () => {
     },[imageFile]);
     const uploadImage = async () => {
       console.log('Uploading image...');
-      
+      const data = new FormData();
+      data.append("file", imageFile);
+      data.append("upload_preset", "myCloud");
+      data.append("cloud_name", "drbgazxua");
+      console.log('Uploading image...');
+      try {
+        console.log('Uploading image...');
+        const res = await fetch('https://api.cloudinary.com/v1_1/drbgazxua/image/upload', {
+          method : "POST",
+          body : data
+        })
+        const cloudData = await res.json();
+        setImageFileUrl(cloudData.url);
+        console.log(cloudData.url);
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
     }
   return (
     <div className="max-w-lg mx-auto p-3 w-full">
