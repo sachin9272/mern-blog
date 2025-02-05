@@ -11,7 +11,7 @@ import FooterCom from "./components/Footer.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import OnlyAdminPrivateRoute from "./components/OnlyAdminPrivateRoute.jsx";
 import CreatePost from "./pages/CreatePost.jsx";
-import UpdatePost from './pages/UpdatePost.jsx';
+import UpdatePost from "./pages/UpdatePost.jsx";
 import PostPage from "./pages/PostPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Search from "./pages/Search.jsx";
@@ -19,7 +19,7 @@ import Search from "./pages/Search.jsx";
 const App = () => {
   return (
     <BrowserRouter>
-      <ScrollToTop/>
+      <ScrollToTop />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -31,11 +31,11 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
         <Route element={<OnlyAdminPrivateRoute />}>
-          <Route path="/create-post" element={ <CreatePost/> } />
-          <Route path="/update-post/:postId" element={ <UpdatePost/> } />
+          <Route path="/create-post" element={<CreatePost />} />
+          <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
         <Route path="/projects" element={<Projects />} />
-        <Route path="/post/:postSlug" element={<PostPage/>} />
+        <Route path="/post/:postSlug" element={<PostPage />} />
       </Routes>
       <FooterCom />
     </BrowserRouter>
